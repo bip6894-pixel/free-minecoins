@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hive Server Ranks</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        
+        body {
+            font-family: 'Press Start 2P', cursive;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            border: 3px solid #4CAF50;
+        }
+        
+        h1 {
+            color: #FFD700; /* Gold */
+            text-shadow: 3px 3px 0 #9C27B0;
+            margin-bottom: 20px;
+        }
+        
+        .rank-option {
+            margin: 15px auto;
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 80%;
+            border: 2px solid transparent;
+        }
+        
+        .rank-option:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        #hive-plus {
+            background-color: #2E7D32; /* Darker Green */
+            border-color: #4CAF50;
+        }
+        
+        #hive-ultimate {
+            background-color: #6A1B9A; /* Darker Purple */
+            border-color: #9C27B0;
+        }
+        
+        .rank-option.selected {
+            border-color: #FFD700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+        }
+        
+        input, select, datalist {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 8px;
+            border: 2px solid #4CAF50;
+            background-color: #333;
+            color: white;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 10px;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: #FFD700;
+        }
+        
+        button {
+            background-color: #FFA500;
+            color: #000;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: 'Press Start 2P', cursive;
+            transition: all 0.3s;
+            margin-top: 15px;
+            font-size: 12px;
+        }
+        
+        button:hover {
+            background-color: #FFC107;
+            transform: scale(1.05);
+        }
+        
+        .review {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            border-left: 4px solid #FFD700;
+            text-align: left;
+            font-size: 12px;
+        }
+        
+        .review-author {
+            color: #4CAF50;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>HIVE SERVER RANKS</h1>
+        <p style="color: #9C27B0;">Unlock exclusive perks with your rank!</p>
+        
+        <div class="rank-option" id="hive-plus">
+            <h2 style="color: #4CAF50;">HIVE PLUS</h2>
+            <p>Perks: 50% XP boost, double map votes, 150 friend slots!</p>
+        </div>
+        
+        <div class="rank-option" id="hive-ultimate">
+            <h2 style="color: #9C27B0;">HIVE ULTIMATE</h2>
+            <p>Perks: 75% XP boost, exclusive cosmetics, triple map votes!</p>
+        </div>
+        
+        <form id="rank-form">
+            <input type="text" placeholder="In-game Gamertag" required>
+            <input type="number" placeholder="Age" required>
+            
+            <input list="countries" placeholder="Country" required>
+            <datalist id="countries">
+                <option value="United States">
+                <option value="United Kingdom">
+                <option value="Canada">
+                <option value="Australia">
+                <option value="Germany">
+            </datalist>
+            
+            <input type="email" placeholder="Microsoft Account Email" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">UPGRADE NOW</button>
+        </form>
+        
+        <div class="review">
+            <p>"Hive Ultimate gave me instant access to all events. Worth every penny!"</p>
+            <p class="review-author">- Gamertag: xProBuilder</p>
+        </div>
+        
+        <div class="review">
+            <p>"I got Hive Plus and doubled my coins in a week. Best decision ever!"</p>
+            <p class="review-author">- Gamertag: DiamondMiner99</p>
+        </div>
+        
+        <div class="review">
+            <p>"The priority queue alone makes Hive Ultimate a must-have."</p>
+            <p class="review-author">- Gamertag: NetherKing</p>
+        </div>
+    </div>
+
+    <script>
+        // Static rank selection (no redirect)
+        const rankOptions = document.querySelectorAll('.rank-option');
+        rankOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                rankOptions.forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+        
+        // Form submission mock (no data sent)
+        document.getElementById('rank-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Rank upgrade request received! please wait');
+        });
+    </script>
+</body>
+</html>
+
